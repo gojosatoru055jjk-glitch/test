@@ -3,75 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xoay màn hình ngang</title>
+    <title>Currency Exchange Vertical TV</title>
     <style>
-        body {
+        /* 1. Thiết lập khung bao ngoài để xoay toàn bộ nội dung */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; /* Tránh hiện thanh cuộn trên TV */
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rotate-wrapper {
+            /* 2. Xoay 90 độ. Nếu bị ngược, hãy đổi thành -90deg hoặc 270deg */
+            transform: rotate(90deg); 
+            
+            /* Đảm bảo kích thước sau khi xoay khớp với màn hình TV dọc */
+            width: 100vh; 
+            height: 100vw;
+            
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
-        .btn-rotate {
-            padding: 15px 30px;
-            font-size: 18px;
-            color: white;
-            background-color: #e91e63;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: 0.3s;
+        /* 3. Phần style bảng (đã phóng to để dễ nhìn trên TV) */
+        .container {
+            width: 90%;
+            max-width: 1200px; /* Tăng kích thước so với bản cũ */
         }
 
-        .btn-rotate:hover {
-            background-color: #c2185b;
-        }
-
-        p {
-            margin-top: 20px;
-            color: #666;
+        h2 {
             text-align: center;
-            padding: 0 20px;
+            font-size: 4rem; /* Chữ cực lớn cho TV */
+            margin-bottom: 40px;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-size: 2.5rem;
+            padding: 20px;
+            border-bottom: 4px solid #eee;
+            text-align: left;
+        }
+
+        td {
+            padding: 30px 20px;
+            border-bottom: 2px solid #eee;
+            font-size: 3rem; /* Tăng cỡ chữ để nhìn từ xa */
+        }
+
+        .currency-pair {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-weight: bold;
+        }
+
+        .flag {
+            width: 100px; /* Cờ lớn hơn */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .rate {
+            text-align: right;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .header-rate { text-align: right; }
+
     </style>
 </head>
 <body>
 
-    <button id="rotateBtn" class="btn-rotate">Xoay Ngang Màn Hình</button>
-    <p>(Lưu ý: Chỉ hoạt động trên thiết bị di động và cần cho phép xoay màn hình)</p>
+<div class="rotate-wrapper">
+    <div class="container">
+        <h2>How to Calculate Currency Exchange</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Currency Pair</th>
+                    <th class="header-rate">Exchange Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="currency-pair">
+                            <img src="https://flagcdn.com/us.svg" class="flag">
+                            USD/EUR
+                        </div>
+                    </td>
+                    <td class="rate">0,92</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="currency-pair">
+                            <img src="https://flagcdn.com/gb.svg" class="flag">
+                            GBP/USD
+                        </div>
+                    </td>
+                    <td class="rate">1,24</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="currency-pair">
+                            <img src="https://flagcdn.com/eu.svg" class="flag">
+                            EUR/JPY
+                        </div>
+                    </td>
+                    <td class="rate">162,45</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="currency-pair">
+                            <img src="https://flagcdn.com/ca.svg" class="flag">
+                            USD/CAD
+                        </div>
+                    </td>
+                    <td class="rate">1,36</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="currency-pair">
+                            <img src="https://flagcdn.com/jp.svg" class="flag">
+                            USD/JPY
+                        </div>
+                    </td>
+                    <td class="rate">148,8</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-    <script>
-        const rotateBtn = document.getElementById('rotateBtn');
-
-        rotateBtn.addEventListener('click', async () => {
-            try {
-                // Bước 1: Phải vào chế độ Toàn màn hình trước
-                if (!document.fullscreenElement) {
-                    await document.documentElement.requestFullscreen();
-                }
-
-                // Bước 2: Khóa màn hình ở hướng ngang (landscape)
-                // 'landscape' sẽ tự chọn landscape-primary hoặc landscape-secondary
-                await screen.orientation.lock('landscape');
-                
-                alert('Đã xoay ngang màn hình!');
-            } catch (error) {
-                console.error("Lỗi xoay màn hình: ", error);
-                alert("Thiết bị hoặc trình duyệt của bạn không hỗ trợ khóa hướng xoay tự động.");
-            }
-        });
-
-        // Tự động giải phóng khóa khi thoát toàn màn hình
-        document.addEventListener('fullscreenchange', () => {
-            if (!document.fullscreenElement) {
-                screen.orientation.unlock();
-            }
-        });
-    </script>
 </body>
 </html>
