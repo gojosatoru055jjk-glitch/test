@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xoay màn hình ngang</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .btn-rotate {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #e91e63;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .btn-rotate:hover {
+            background-color: #c2185b;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #666;
+            text-align: center;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="rotateBtn" class="btn-rotate">Xoay Ngang Màn Hình</button>
+    <p>(Lưu ý: Chỉ hoạt động trên thiết bị di động và cần cho phép xoay màn hình)</p>
+
+    <script>
+        const rotateBtn = document.getElementById('rotateBtn');
+
+        rotateBtn.addEventListener('click', async () => {
+            try {
+                // Bước 1: Phải vào chế độ Toàn màn hình trước
+                if (!document.fullscreenElement) {
+                    await document.documentElement.requestFullscreen();
+                }
+
+                // Bước 2: Khóa màn hình ở hướng ngang (landscape)
+                // 'landscape' sẽ tự chọn landscape-primary hoặc landscape-secondary
+                await screen.orientation.lock('landscape');
+                
+                alert('Đã xoay ngang màn hình!');
+            } catch (error) {
+                console.error("Lỗi xoay màn hình: ", error);
+                alert("Thiết bị hoặc trình duyệt của bạn không hỗ trợ khóa hướng xoay tự động.");
+            }
+        });
+
+        // Tự động giải phóng khóa khi thoát toàn màn hình
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                screen.orientation.unlock();
+            }
+        });
+    </script>
+</body>
+</html>
