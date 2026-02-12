@@ -49,16 +49,22 @@
             border-collapse: collapse;
         }
 
+        tr{
+            display: flex;
+            width: 700px;
+            justify-content: space-between;
+            border-bottom: 4px solid #eee;  
+        }
+
         th {
             font-size: 1rem;
             padding: 20px;
-            border-bottom: 4px solid #eee;
             text-align: left;
         }
 
         td {
+            width: calc(100%/3);
             padding: 10px 10px;
-            border-bottom: 2px solid #eee;
             font-size: 1rem;
         }
 
@@ -83,6 +89,17 @@
             font-size: 1.6rem;
         }
 
+        .currency_code{
+            color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+            font-weight: 600;
+            color: #000;
+            font-size: 1rem;
+        }
+
         .header-rate { text-align: right; }
 
     </style>
@@ -97,6 +114,7 @@
             <thead>
                 <tr>
                     <th>Foreign Currency</th>
+                    <th>Currency Code</th>
                     <th class="header-rate">Exchange Rate</th>
                 </tr>
             </thead>
@@ -108,6 +126,7 @@
                             U.S DOLLAR
                         </div>
                     </td>
+                    <td class="currency_code">(USD)</td>
                     <td class="rate">25,600</td>
                 </tr>
                 <tr>
@@ -117,6 +136,8 @@
                             U.S DOLLAR (10-20)
                         </div>
                     </td>
+                    <td class="currency_code">(USD)</td>
+
                     <td class="rate">24,000</td>
                 </tr>
                 <tr>
@@ -126,6 +147,8 @@
                             EURO
                         </div>
                     </td>
+                    <td class="currency_code">(EUR)</td>
+
                     <td class="rate">29,700</td>
                 </tr>
                 <tr>
@@ -135,6 +158,8 @@
                             JAPANESE YEN
                         </div>
                     </td>
+                    <td class="currency_code">(JPY)</td>
+
                     <td class="rate">137</td>
                 </tr>
                 <tr>
@@ -144,6 +169,8 @@
                             SWISS FRANC
                         </div>
                     </td>
+                    <td class="currency_code">(CHF)</td>
+
                     <td class="rate">32,500</td>
                 </tr>
                 <tr>
@@ -153,6 +180,8 @@
                             CANADIAN DOLLAR
                         </div>
                     </td>
+                    <td class="currency_code">(CAD)</td>
+
                     <td class="rate">18,300</td>
                 </tr>
                 <tr>
@@ -162,6 +191,8 @@
                             AUSTRALIAN DOLLAR
                         </div>
                     </td>
+                    <td class="currency_code">(AUD)</td>
+
                     <td class="rate">17,300</td>
                 </tr>
                 <tr>
@@ -171,6 +202,8 @@
                             SINGAPORE DOLLAR
                         </div>
                     </td>
+                    <td class="currency_code">(SGD)</td>
+
                     <td class="rate">19,600</td>
                 </tr>
                 <tr>
@@ -180,6 +213,8 @@
                             BRITISH POUND
                         </div>
                     </td>
+                    <td class="currency_code">(GBP)</td>
+
                     <td class="rate">34,200</td>
                 </tr>
                 <tr>
@@ -189,7 +224,9 @@
                             HONG KONG DOLLAR
                         </div>
                     </td>
-                    <td class="rate">3,000<td>
+                    <td class="currency_code">(HKD)</td>
+
+                    <td class="rate">3,000</td>
                 </tr>
             </tbody>
         </table>
