@@ -21,11 +21,8 @@
         .rotate-wrapper {
 
             transform: rotate(90deg); 
-            
-
             width: 100vh; 
-            height: 100vw;
-            
+            height: 100vw;  
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -66,6 +63,14 @@
             width: calc(100%/3);
             padding: 10px 10px;
             font-size: 1rem;
+        }
+
+        .Foreign_Currency{
+            width: 50%;
+        }
+
+        .Foreign_Currency-header{
+            width: 31%;
         }
 
         .currency-pair {
@@ -113,14 +118,14 @@
         <table>
             <thead>
                 <tr>
-                    <th>Foreign Currency</th>
+                    <th class="Foreign_Currency-header">Foreign Currency</th>
                     <th>Currency Code</th>
                     <th class="header-rate">Exchange Rate</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/us.svg" class="flag">
                             U.S DOLLAR
@@ -130,7 +135,7 @@
                     <td class="rate">25,600</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/us.svg" class="flag">
                             U.S DOLLAR (10-20)
@@ -141,7 +146,7 @@
                     <td class="rate">24,000</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/eu.svg" class="flag">
                             EURO
@@ -152,7 +157,7 @@
                     <td class="rate">29,700</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/jp.svg" class="flag">
                             JAPANESE YEN
@@ -163,7 +168,7 @@
                     <td class="rate">137</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/fr.svg" class="flag">
                             SWISS FRANC
@@ -174,7 +179,7 @@
                     <td class="rate">32,500</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/ca.svg" class="flag">
                             CANADIAN DOLLAR
@@ -185,7 +190,7 @@
                     <td class="rate">18,300</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/au.svg" class="flag">
                             AUSTRALIAN DOLLAR
@@ -196,7 +201,7 @@
                     <td class="rate">17,300</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/sg.svg" class="flag">
                             SINGAPORE DOLLAR
@@ -207,7 +212,7 @@
                     <td class="rate">19,600</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/gb.svg" class="flag">
                             BRITISH POUND
@@ -218,7 +223,7 @@
                     <td class="rate">34,200</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Foreign_Currency">
                         <div class="currency-pair">
                             <img src="https://flagcdn.com/hk.svg" class="flag">
                             HONG KONG DOLLAR
